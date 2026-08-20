@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XHID — USB HID Mouse Bridge</title>
+<title>XHID — Best Gaming Device</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖱</text></svg>">
 <style>
 :root{--g:#00ff4d;--bg:#020804;--p:#0a120d;--dim:rgba(0,255,77,.45);--glass:rgba(0,255,77,.04)}
@@ -12,14 +12,12 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:rgba(255,255,255,.88);font:15px/1.65 'Inter','Segoe UI',system-ui,sans-serif;overflow-x:hidden}
 ::selection{background:rgba(0,255,77,.25);color:#fff}
 
-/* ── Lang toggle ── */
 [data-ru]{display:none}
 .lang-ru [data-ru]{display:initial}
 .lang-ru [data-en]{display:none}
 .lang-en [data-en]{display:initial}
 .lang-en [data-ru]{display:none}
 
-/* ── Nav ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:56px;display:flex;align-items:center;gap:16px;background:rgba(2,8,4,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,255,77,.12)}
 .nav-logo{font-size:18px;font-weight:800;letter-spacing:4px;color:var(--g);font-family:'Courier New',monospace;text-decoration:none}
 .nav-links{display:flex;gap:24px;margin-left:auto;align-items:center}
@@ -28,7 +26,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:56px;d
 .lang-btn{background:none;border:1px solid var(--dim);color:var(--dim);padding:4px 10px;border-radius:14px;font:11px 'Courier New',monospace;cursor:pointer;letter-spacing:1px;transition:all .2s}
 .lang-btn:hover{border-color:var(--g);color:var(--g)}
 
-/* ── Hero ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,255,77,.06) 0%,transparent 70%);pointer-events:none}
 .hero-badge{display:inline-block;padding:6px 16px;border:1px solid rgba(0,255,77,.3);border-radius:20px;font:11px 'Courier New',monospace;color:var(--g);letter-spacing:2px;text-transform:uppercase;margin-bottom:28px}
@@ -40,14 +37,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:56px;d
 .btn:hover{background:rgba(0,255,77,.16);border-color:var(--g);color:#fff;box-shadow:0 0 20px rgba(0,255,77,.2)}
 .btn.fill{background:rgba(0,255,77,.16);color:#fff}
 
-/* ── Sections ── */
 section{padding:80px 24px;max-width:960px;margin:0 auto}
 .sec-label{font:11px 'Courier New',monospace;color:var(--g);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
 .sec-title{font-size:clamp(24px,4vw,36px);font-weight:700;margin-bottom:16px;line-height:1.2}
 .sec-desc{color:rgba(255,255,255,.5);max-width:640px;font-size:15px;margin-bottom:40px}
 .divider{height:1px;background:rgba(0,255,77,.1);max-width:960px;margin:0 auto}
 
-/* ── Features grid ── */
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .feat{background:var(--p);border:1px solid rgba(0,255,77,.18);border-radius:12px;padding:24px;transition:border-color .2s}
 .feat:hover{border-color:rgba(0,255,77,.4)}
@@ -55,26 +50,22 @@ section{padding:80px 24px;max-width:960px;margin:0 auto}
 .feat h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--g)}
 .feat p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
 
-/* ── Specs ── */
 .specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .spec{background:var(--p);border:1px solid rgba(0,255,77,.12);border-radius:8px;padding:16px;display:flex;align-items:center;gap:12px}
 .spec-val{font:700 20px 'Courier New',monospace;color:var(--g);min-width:60px}
 .spec-label{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase}
 
-/* ── Video / Media ── */
 .media-placeholder{background:var(--p);border:1px solid rgba(0,255,77,.15);border-radius:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:var(--dim);font:13px 'Courier New',monospace;letter-spacing:2px;text-transform:uppercase;position:relative;overflow:hidden}
 .media-placeholder::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,77,.015) 2px,rgba(0,255,77,.015) 4px);pointer-events:none}
 
-/* ── Architecture diagram ── */
-.arch{background:var(--p);border:1px solid rgba(0,255,77,.15);border-radius:12px;padding:32px;font:13px/1.8 'Courier New',monospace;color:var(--dim);white-space:pre;overflow-x:auto;max-width:100%}
-.arch .hl{color:var(--g)}
+.quote{background:var(--p);border:1px solid rgba(0,255,77,.15);border-radius:12px;padding:32px 40px;text-align:center;margin-top:24px}
+.quote-text{font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--g);line-height:1.4;margin-bottom:8px}
+.quote-sub{font-size:13px;color:rgba(255,255,255,.4);letter-spacing:1px}
 
-/* ── Footer ── */
 footer{text-align:center;padding:48px 24px;color:rgba(255,255,255,.25);font-size:12px;letter-spacing:1px;border-top:1px solid rgba(0,255,77,.08)}
 footer a{color:var(--dim);text-decoration:none}
 footer a:hover{color:var(--g)}
 
-/* ── Mobile ── */
 @media(max-width:640px){
   nav{padding:0 12px}
   .nav-links{gap:12px}
@@ -89,8 +80,8 @@ footer a:hover{color:var(--g)}
   <a href="#" class="nav-logo">XHID</a>
   <div class="nav-links">
     <a href="#features"><span data-ru>Возможности</span><span data-en>Features</span></a>
-    <a href="#specs"><span data-ru>Характеристики</span><span data-en>Specs</span></a>
-    <a href="#arch"><span data-ru>Архитектура</span><span data-en>Architecture</span></a>
+    <a href="#makcu"><span data-ru>MAKCU</span><span data-en>MAKCU</span></a>
+    <a href="#how"><span data-ru>Управление</span><span data-en>Control</span></a>
     <a href="mailto:x.hid@ya.ru" style="color:var(--g)">x.hid@ya.ru</a>
     <button class="lang-btn" onclick="toggleLang()">EN</button>
   </div>
@@ -98,16 +89,16 @@ footer a:hover{color:var(--g)}
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
-  <div class="hero-badge">STM32F407 + USB OTG</div>
+  <div class="hero-badge">Best Gaming Device</div>
   <h1><span class="hl">X</span>HID</h1>
   <p class="hero-sub">
-    <span data-ru>USB HID мост между ПК и мышью. Макросы, отдача, Lua-скрипты, вайфай-дашборд. Всё на STM32F407.</span>
-    <span data-en>USB HID bridge between PC and mouse. Macros, recoil control, Lua scripts, WiFi dashboard. All on STM32F407.</span>
+    <span data-ru>Устройство, которое становится продолжением вашей мыши. Макросы, компенсация отдачи, полная настройка под ваш стиль игры.</span>
+    <span data-en>A device that becomes an extension of your mouse. Macros, recoil compensation, fully customizable to your playstyle.</span>
   </p>
   <div class="hero-cta">
-    <a href="#features" class="btn fill"><span data-ru>Подробнее</span><span data-en>Learn More</span></a>
-    <a href="#arch" class="btn"><span data-ru>Архитектура</span><span data-en>Architecture</span></a>
-    <a href="mailto:x.hid@ya.ru" class="btn"><span data-ru>Связаться</span><span data-en>Contact</span></a>
+    <a href="#features" class="btn fill"><span data-ru>Возможности</span><span data-en>Features</span></a>
+    <a href="#makcu" class="btn">MAKCU</a>
+    <a href="mailto:x.hid@ya.ru" class="btn"><span data-ru>Купить</span><span data-en>Buy</span></a>
   </div>
 </section>
 
@@ -117,37 +108,47 @@ footer a:hover{color:var(--g)}
 <section id="features">
   <div class="sec-label">// <span data-ru>Возможности</span><span data-en>Features</span></div>
   <h2 class="sec-title"><span data-ru>Что умеет XHID</span><span data-en>What XHID Does</span></h2>
-  <p class="sec-desc"><span data-ru>Полноценный USB HID бридж с поддержкой макросов, компенсации отдачи и настраиваемой привязки кнопок.</span><span data-en>Full USB HID bridge with macro support, recoil compensation, and configurable button binds.</span></p>
+  <p class="sec-desc"><span data-ru>XHID подключается между вашей мышью и ПК. Все отчёты мыши проходят через устройство и могут быть модифицированы на лету.</span><span data-en>XHID connects between your mouse and PC. All mouse reports pass through the device and can be modified on the fly.</span></p>
   <div class="feat-grid">
-    <div class="feat">
-      <div class="feat-icon">🖱</div>
-      <h3><span data-ru>USB HID Bridge</span><span data-en>USB HID Bridge</span></h3>
-      <p><span data-ru>STM32F407VET6 как посредник между мышью и ПК. Прозрачный проброс + модификация отчётов на лету.</span><span data-en>STM32F407VET6 as middleman between mouse and PC. Transparent passthrough + on-the-fly report modification.</span></p>
-    </div>
     <div class="feat">
       <div class="feat-icon">🎯</div>
       <h3><span data-ru>Компенсация отдачи</span><span data-en>Recoil Compensation</span></h3>
-      <p><span data-ru>Предрасчёт паттернов отдачи по RPM/AT. Все оружие Rust, настройка через OLED-меню или дашборд.</span><span data-en>Recoil pattern precomputation via RPM/AT. All Rust weapons, configurable via OLED menu or dashboard.</span></p>
+      <p><span data-ru>Предрасчёт паттернов отдачи для всего оружия. Точность до пикселя, настройка модулей и чувствительности.</span><span data-en>Recoil pattern precomputation for all weapons. Pixel-perfect accuracy, module and sensitivity tuning.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🎭</div>
+      <h3><span data-ru>Гуманизация</span><span data-en>Humanization</span></h3>
+      <p><span data-ru>Случайные микро-отклонения, рандомизированные задержки кликов и Безье-кривые для естественного движения курсора.</span><span data-en>Random micro-deviations, randomized click delays, and Bezier curves for natural cursor movement.</span></p>
     </div>
     <div class="feat">
       <div class="feat-icon">⌨</div>
-      <h3><span data-ru>Макросы .xhm / .lua</span><span data-en>.xhm / .lua Macros</span></h3>
-      <p><span data-ru>Текстовые макросы с SD-карты или полный Lua 5.4 VM с GHUB API. Запись/воспроизведение с кнопок.</span><span data-en>Text macros from SD card or full Lua 5.4 VM with GHUB API. Record/playback from mouse buttons.</span></p>
+      <h3><span data-ru>Макросы</span><span data-en>Macros</span></h3>
+      <p><span data-ru>Текстовые макросы с SD-карты или полная Lua-среда с GHUB API. Запись и воспроизведение с кнопок мыши.</span><span data-en>Text macros from SD card or full Lua scripting with GHUB API. Record and playback from mouse buttons.</span></p>
     </div>
     <div class="feat">
       <div class="feat-icon">🔗</div>
       <h3><span data-ru>Система биндов</span><span data-en>Bind System</span></h3>
-      <p><span data-ru>Назначение действий на кнопки мыши через дашборд. Захват кнопки, комбинации, hold-to-action.</span><span data-en>Map actions to mouse buttons via dashboard. Button capture, combos, hold-to-action.</span></p>
+      <p><span data-ru>Назначение любых действий на кнопки мыши. Захват кнопки одним нажатием, комбинации, удержание.</span><span data-en>Map any action to mouse buttons. One-click button capture, combinations, hold-to-trigger.</span></p>
     </div>
     <div class="feat">
-      <div class="feat-icon">📡</div>
-      <h3><span data-ru>WiFi дашборд</span><span data-en>WiFi Dashboard</span></h3>
-      <p><span data-ru>ESP8266 точка доступа. Настройка всех параметров с телефона — оружие, модули, USB-дескриптор, бинды.</span><span data-en>ESP8266 access point. Configure everything from your phone — weapons, modules, USB descriptor, binds.</span></p>
+      <div class="feat-icon">🛡</div>
+      <h3><span data-ru>Легитимность</span><span data-en>Anti-Cheat Safe</span></h3>
+      <p><span data-ru>Устройство маскируется под стандартную мышь. Аналог MAKCU-устройства — проверено на EAC и аналогах.</span><span data-en>Device masquerades as a standard mouse. MAKCU-compatible — tested with EAC and similar systems.</span></p>
     </div>
     <div class="feat">
       <div class="feat-icon">🎮</div>
       <h3><span data-ru>USB Spoofing</span><span data-en>USB Spoofing</span></h3>
-      <p><span data-ru>Меняйте VID/PID и имена USB-устройства на лету. Библиотека пресетов Logitech, G502/G PRO/G305.</span><span data-en>Change VID/PID and USB device names on the fly. Preset library for Logitech G502/G PRO/G305.</span></p>
+      <p><span data-ru>Полная замена USB-идентификации: VID/PID, имя производителя, модель, серийный номер. Библиотека пресетов.</span><span data-en>Full USB identity override: VID/PID, manufacturer, product name, serial number. Preset library.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📡</div>
+      <h3><span data-ru>WiFi-дашборд</span><span data-en>WiFi Dashboard</span></h3>
+      <p><span data-ru>Настройка устройства из любого браузера в локальной сети. Телефон, планшет, ноутбук — неважно.</span><span data-en>Configure from any browser on your local network. Phone, tablet, laptop — it doesn't matter.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">⚡</div>
+      <h3><span data-ru>Дополнительный ПК</span><span data-en>Second PC Control</span></h3>
+      <p><span data-ru>Устройство принимает команды со второго компьютера через UART-мост. Управление настройками, оружием и макросами в реальном времени.</span><span data-en>Accepts commands from a second computer via UART bridge. Real-time weapon settings, macros, and configuration.</span></p>
     </div>
   </div>
 </section>
@@ -178,59 +179,69 @@ footer a:hover{color:var(--g)}
 
 <div class="divider"></div>
 
-<!-- ══════════ SPECS ══════════ -->
-<section id="specs">
-  <div class="sec-label">// <span data-ru>Характеристики</span><span data-en>Specifications</span></div>
-  <h2 class="sec-title"><span data-ru>Аппаратная часть</span><span data-en>Hardware</span></h2>
-  <div class="specs">
-    <div class="spec"><span class="spec-val">F407</span><span class="spec-label"><span data-ru>STM32F407VET6</span><span data-en>STM32F407VET6</span></span></div>
-    <div class="spec"><span class="spec-val">1kHz</span><span class="spec-label"><span data-ru>Частота опроса</span><span data-en>Polling Rate</span></span></div>
-    <div class="spec"><span class="spec-val">USB</span><span class="spec-label"><span data-ru>OTG FS + HS</span><span data-en>OTG FS + HS</span></span></div>
-    <div class="spec"><span class="spec-val">SD</span><span class="spec-label"><span data-ru>SD-карта (SDIO)</span><span data-en>SD Card (SDIO)</span></span></div>
-    <div class="spec"><span class="spec-val">OLED</span><span class="spec-label"><span data-ru>SSD1306 128×64</span><span data-en>SSD1306 128×64</span></span></div>
-    <div class="spec"><span class="spec-val">WiFi</span><span class="spec-label"><span data-ru>ESP8266 дашборд</span><span data-en>ESP8266 dashboard</span></span></div>
-    <div class="spec"><span class="spec-val">2MB</span><span class="spec-label"><span data-ru>W25Q16 Flash</span><span data-en>W25Q16 Flash</span></span></div>
-    <div class="spec"><span class="spec-val">Lua</span><span class="spec-label"><span data-ru>Lua 5.4 VM</span><span data-en>Lua 5.4 VM</span></span></div>
-    <div class="spec"><span class="spec-val">ENC</span><span class="spec-label"><span data-ru>Энкодер EC11</span><span data-en>EC11 Encoder</span></span></div>
-    <div class="spec"><span class="spec-val">4MB</span><span class="spec-label"><span data-ru>UART 4M baud</span><span data-en>UART 4M baud</span></span></div>
+<!-- ══════════ MAKCU COMPATIBILITY ══════════ -->
+<section id="makcu">
+  <div class="sec-label">// MAKCU</div>
+  <h2 class="sec-title"><span data-ru>Совместимость с MAKCU</span><span data-en>MAKCU Compatible</span></h2>
+  <p class="sec-desc"><span data-ru>XHID — полный аналог MAKCU-устройства. Все команды km.* совместимы. Подключается к программам управления (Eventuri, AIBOT) через USB-UART мост на 4 000 000 бод.</span><span data-en>XHID is a full MAKCU device equivalent. All km.* commands are compatible. Connects to control software (Eventuri, AIBOT) via USB-UART bridge at 4,000,000 baud.</span></p>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">🕹</div>
+      <h3>km.move / km.moveto</h3>
+      <p><span data-ru>Прямое управление курсором. Абсолютные и относительные перемещения, квадратичные Безье-кривые.</span><span data-en>Direct cursor control. Absolute and relative movements, quadratic Bezier curves.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🔫</div>
+      <h3>km.left / km.right / km.side1</h3>
+      <p><span data-ru>Виртуальные кнопки мыши. Клики, удержание, латчи, виртуальное колесо. С гуманизацией задержек.</span><span data-en>Virtual mouse buttons. Clicks, hold, latches, virtual wheel. With humanized timing.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📋</div>
+      <h3>km.report / km.weapons / km.bindset</h3>
+      <p><span data-ru>Отладка, управление оружием, настройка биндов — всё доступно из внешней программы.</span><span data-en>Debug, weapon management, bind configuration — all accessible from external software.</span></p>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════════ ARCHITECTURE ══════════ -->
-<section id="arch">
-  <div class="sec-label">// <span data-ru>Архитектура</span><span data-en>Architecture</span></div>
-  <h2 class="sec-title"><span data-ru>Схема системы</span><span data-en>System Diagram</span></h2>
-  <div class="arch"><span class="hl">┌─────────┐</span>     <span class="hl">USB FS</span>     <span class="hl">┌──────────────┐</span>     <span class="hl">USB FS</span>     <span class="hl">┌──────────┐</span>
-<span class="hl">│    PC    │</span>◄────────────►<span class="hl">│ STM32F407   │</span>◄────────────►<span class="hl">│  G102/    │</span>
-<span class="hl">│          │</span>  1000Hz       <span class="hl">│              │</span>  1000Hz       <span class="hl">│  G502     │</span>
-<span class="hl">└─────────┘</span>              <span class="hl">│              │</span>              <span class="hl">└──────────┘</span>
-                          <span class="hl">│              │</span>
-                     <span class="hl">SPI</span> │    <span class="hl">SDIO</span>     │ <span class="hl">I2C</span>    │ <span class="hl">SPI</span>
-                    ┌──────┼──────────────┼────────┼──────┐
-                    │      │              │        │      │
-               <span class="hl">┌───┴───┐</span> <span class="hl">┌──────┐</span>  <span class="hl">┌────┴────┐</span> <span class="hl">┌────┴──┐</span>
-               <span class="hl">│W25Q16 │</span> <span class="hl">│ SD   │</span>  <span class="hl">│OLED    │</span> <span class="hl">│EC11   │</span>
-               <span class="hl">│2MB    │</span> <span class="hl">│ Card │</span>  <span class="hl">│SSD1306 │</span> <span class="hl">│Encoder│</span>
-               <span class="hl">└───────┘</span> <span class="hl">└──────┘</span>  <span class="hl">└───────┘</span> <span class="hl">└───────┘</span>
-
-                    <span class="hl">UART1 (4M)</span>                <span class="hl">UART2 (115200)</span>
-               <span class="hl">┌──────────────┐</span>        <span class="hl">┌──────────────┐</span>
-               <span class="hl">│ CH340/CH343  │</span>        <span class="hl">│ ESP8266      │</span>
-               <span class="hl">│ MAKCU bridge │</span>        <span class="hl">│ WiFi Dashboard│</span>
-               <span class="hl">└──────────────┘</span>        <span class="hl">└──────────────┘</span></div>
+<!-- ══════════ QUOTE ══════════ -->
+<section>
+  <div class="quote">
+    <div class="quote-text"><span data-ru>Best Gaming Device</span><span data-en>Best Gaming Device</span></div>
+    <div class="quote-sub">XHID</div>
+  </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- ══════════ HOW TO CONTROL ══════════ -->
+<section id="how">
+  <div class="sec-label">// <span data-ru>Управление</span><span data-en>Control</span></div>
+  <h2 class="sec-title"><span data-ru>Управляйте откуда угодно</span><span data-en>Control From Anywhere</span></h2>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">📱</div>
+      <h3><span data-ru>WiFi-дашборд</span><span data-en>WiFi Dashboard</span></h3>
+      <p><span data-ru>Подключитесь к устройству с телефона или ноутбука через браузер в локальной сети. Настройка всех параметров без проводов.</span><span data-en>Connect to the device from your phone or laptop via browser on local network. Configure everything wirelessly.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🖥</div>
+      <h3><span data-ru>Второй ПК</span><span data-en>Second PC</span></h3>
+      <p><span data-ru>Подключите второй компьютер через USB-UART мост. Полный контроль: команда за командой, в реальном времени.</span><span data-en>Connect a second computer via USB-UART bridge. Full control: command by command, in real time.</span></p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🎛</div>
+      <h3><span data-ru>Встроенное меню</span><span data-en>Built-in Menu</span></h3>
+      <p><span data-ru>Энкодер и OLED-экран на корпусе. Быстрая настройка без подключения к ПК — выберите оружие, чувствительность, макрос.</span><span data-en>Encoder and OLED screen on the body. Quick setup without PC — select weapon, sensitivity, macro.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <footer>
-  <p>XHID &mdash; STM32F407 USB HID Mouse Bridge &copy; 2026</p>
-  <p style="margin-top:8px">
-    <span data-ru>Прошивка: AGPL-3.0 · Дашборд: MIT</span>
-    <span data-en>Firmware: AGPL-3.0 · Dashboard: MIT</span>
-  </p>
+  <p>XHID &mdash; Best Gaming Device &copy; 2026</p>
   <p style="margin-top:12px"><a href="mailto:x.hid@ya.ru">x.hid@ya.ru</a></p>
 </footer>
 
