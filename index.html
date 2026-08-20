@@ -2,15 +2,16 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>XHID — Best Gaming Device</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖱</text></svg>">
 <style>
 :root{--g:#00ff4d;--bg:#020804;--p:#0a120d;--dim:rgba(0,255,77,.45);--glass:rgba(0,255,77,.04)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:rgba(255,255,255,.88);font:15px/1.65 'Inter','Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:rgba(255,255,255,.88);font:15px/1.65 'Inter','Segoe UI',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::selection{background:rgba(0,255,77,.25);color:#fff}
+img{max-width:100%;height:auto}
 
 [data-ru]{display:none}
 .lang-ru [data-ru]{display:initial}
@@ -18,14 +19,30 @@ body{background:var(--bg);color:rgba(255,255,255,.88);font:15px/1.65 'Inter','Se
 .lang-en [data-en]{display:initial}
 .lang-en [data-ru]{display:none}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:56px;display:flex;align-items:center;gap:16px;background:rgba(2,8,4,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,255,77,.12)}
-.nav-logo{font-size:18px;font-weight:800;letter-spacing:4px;color:var(--g);font-family:'Courier New',monospace;text-decoration:none}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:56px;display:flex;align-items:center;gap:16px;background:rgba(2,8,4,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,255,77,.12)}
+.nav-logo{font-size:18px;font-weight:800;letter-spacing:4px;color:var(--g);font-family:'Courier New',monospace;text-decoration:none;flex-shrink:0}
 .nav-links{display:flex;gap:24px;margin-left:auto;align-items:center}
-.nav-links a{color:var(--dim);text-decoration:none;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.nav-links a{color:var(--dim);text-decoration:none;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--g)}
-.lang-btn{background:none;border:1px solid var(--dim);color:var(--dim);padding:4px 10px;border-radius:14px;font:11px 'Courier New',monospace;cursor:pointer;letter-spacing:1px;transition:all .2s}
+.lang-btn{background:none;border:1px solid var(--dim);color:var(--dim);padding:4px 10px;border-radius:14px;font:11px 'Courier New',monospace;cursor:pointer;letter-spacing:1px;transition:all .2s;flex-shrink:0}
 .lang-btn:hover{border-color:var(--g);color:var(--g)}
 
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px -8px;z-index:110;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--g);transition:all .3s;border-radius:1px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile overlay menu */
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:rgba(2,8,4,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s}
+.mobile-menu.open{display:flex;opacity:1;transform:translateY(0)}
+.mobile-menu a{color:var(--dim);text-decoration:none;font-size:18px;letter-spacing:3px;text-transform:uppercase;font-family:'Courier New',monospace;transition:color .2s;padding:12px 0}
+.mobile-menu a:hover{color:var(--g)}
+.mobile-menu .lang-btn{font-size:14px;padding:8px 20px;margin-top:8px}
+
+/* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,255,77,.06) 0%,transparent 70%);pointer-events:none}
 .hero-badge{display:inline-block;padding:6px 16px;border:1px solid rgba(0,255,77,.3);border-radius:20px;font:11px 'Courier New',monospace;color:var(--g);letter-spacing:2px;text-transform:uppercase;margin-bottom:28px}
@@ -33,25 +50,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:56px;d
 .hero h1 .hl{color:var(--g);text-shadow:0 0 40px rgba(0,255,77,.3)}
 .hero-sub{font-size:clamp(15px,2.2vw,20px);color:rgba(255,255,255,.55);max-width:620px;margin-bottom:40px;line-height:1.6}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn{display:inline-block;padding:12px 28px;border:1px solid rgba(0,255,77,.5);border-radius:24px;font:13px 'Courier New',monospace;color:var(--g);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all .2s;cursor:pointer;background:rgba(0,255,77,.06)}
+.btn{display:inline-block;padding:12px 28px;border:1px solid rgba(0,255,77,.5);border-radius:24px;font:13px 'Courier New',monospace;color:var(--g);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all .2s;cursor:pointer;background:rgba(0,255,77,.06);min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 .btn:hover{background:rgba(0,255,77,.16);border-color:var(--g);color:#fff;box-shadow:0 0 20px rgba(0,255,77,.2)}
 .btn.fill{background:rgba(0,255,77,.16);color:#fff}
 
+/* ── SECTIONS ── */
 section{padding:80px 24px;max-width:960px;margin:0 auto}
 .sec-label{font:11px 'Courier New',monospace;color:var(--g);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
 .sec-title{font-size:clamp(24px,4vw,36px);font-weight:700;margin-bottom:16px;line-height:1.2}
 .sec-desc{color:rgba(255,255,255,.5);max-width:640px;font-size:15px;margin-bottom:40px}
 .divider{height:1px;background:rgba(0,255,77,.1);max-width:960px;margin:0 auto}
 
+/* ── FEATURE GRID ── */
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .feat{background:var(--p);border:1px solid rgba(0,255,77,.18);border-radius:12px;padding:24px;transition:border-color .2s}
 .feat:hover{border-color:rgba(0,255,77,.4)}
 .feat h3{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--g);font-family:'Courier New',monospace}
 .feat p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
 
+/* ── MEDIA ── */
 .media-placeholder{background:var(--p);border:1px solid rgba(0,255,77,.15);border-radius:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:var(--dim);font:13px 'Courier New',monospace;letter-spacing:2px;text-transform:uppercase;position:relative;overflow:hidden}
 .media-placeholder::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,77,.015) 2px,rgba(0,255,77,.015) 4px);pointer-events:none}
 
+/* ── HIGHLIGHT BOX ── */
 .highlight-box{background:var(--p);border:1px solid rgba(0,255,77,.25);border-radius:12px;padding:24px 28px;margin-bottom:16px}
 .highlight-box h3{color:var(--g);font-size:14px;margin-bottom:10px;letter-spacing:1px;font-family:'Courier New',monospace}
 .highlight-box p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7}
@@ -59,27 +80,82 @@ section{padding:80px 24px;max-width:960px;margin:0 auto}
 .highlight-box li{font-size:13px;color:rgba(255,255,255,.55);padding:4px 0 4px 18px;position:relative;line-height:1.6}
 .highlight-box li::before{content:'>' ;position:absolute;left:0;color:var(--g);font-family:'Courier New',monospace}
 
-.cmd-table{width:100%;border-collapse:collapse;font:12px 'Courier New',monospace}
-.cmd-table th{text-align:left;color:var(--g);padding:8px 12px;border-bottom:1px solid rgba(0,255,77,.25);font-size:11px;letter-spacing:2px;text-transform:uppercase}
-.cmd-table td{padding:8px 12px;border-bottom:1px solid rgba(0,255,77,.08);color:rgba(255,255,255,.6);vertical-align:top}
+/* ── TABLE ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:1px solid rgba(0,255,77,.25);background:var(--p)}
+.cmd-table{width:100%;border-collapse:collapse;font:12px/1.5 'Courier New',monospace;min-width:480px}
+.cmd-table th{text-align:left;color:var(--g);padding:10px 14px;border-bottom:1px solid rgba(0,255,77,.25);font-size:11px;letter-spacing:2px;text-transform:uppercase;position:sticky;top:0;background:var(--p)}
+.cmd-table td{padding:10px 14px;border-bottom:1px solid rgba(0,255,77,.08);color:rgba(255,255,255,.6);vertical-align:top}
 .cmd-table td:first-child{color:var(--g);white-space:nowrap}
 .cmd-table tr:hover td{background:rgba(0,255,77,.03)}
 
+/* ── QUOTE ── */
 .quote{background:var(--p);border:1px solid rgba(0,255,77,.15);border-radius:12px;padding:32px 40px;text-align:center;margin-top:24px}
 .quote-text{font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--g);line-height:1.4;margin-bottom:8px}
 .quote-sub{font-size:13px;color:rgba(255,255,255,.4);letter-spacing:1px}
 
+/* ── FOOTER ── */
 footer{text-align:center;padding:48px 24px;color:rgba(255,255,255,.25);font-size:12px;letter-spacing:1px;border-top:1px solid rgba(0,255,77,.08)}
 footer a{color:var(--dim);text-decoration:none}
 footer a:hover{color:var(--g)}
 
-@media(max-width:640px){
-  nav{padding:0 12px}
-  .nav-links{gap:12px}
-  section{padding:48px 16px}
-  .hero{padding:80px 16px 40px}
-  .cmd-table{font-size:11px}
-  .cmd-table td,.cmd-table th{padding:6px 8px}
+/* ═══════════════════════════════
+   MOBILE BREAKPOINT
+   ═══════════════════════════════ */
+@media(max-width:768px){
+  /* Nav → hamburger */
+  .nav-links{display:none}
+  .hamburger{display:flex}
+
+  section{padding:56px 16px}
+  .hero{padding:80px 16px 40px;min-height:calc(100vh - 56px)}
+  .hero h1{font-size:clamp(32px,10vw,48px)}
+  .hero-sub{font-size:15px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%;text-align:center}
+
+  .feat-grid{grid-template-columns:1fr;gap:12px}
+  .feat{padding:20px}
+  .feat h3{font-size:14px}
+  .feat p{font-size:13px}
+
+  .sec-title{font-size:clamp(22px,5vw,30px)}
+  .sec-desc{font-size:14px}
+
+  .highlight-box{padding:20px}
+  .highlight-box h3{font-size:13px}
+  .highlight-box p,.highlight-box li{font-size:12px}
+
+  .divider{margin:0 16px}
+
+  .table-wrap{margin:0 -16px;border-radius:0;border-left:none;border-right:none}
+
+  .quote{padding:24px 20px}
+  .quote-text{font-size:20px}
+
+  footer{padding:32px 16px}
+
+  /* Touch targets: minimum 44px */
+  .btn{min-height:48px;padding:14px 24px;font-size:14px}
+  .lang-btn{min-height:44px;padding:8px 16px;font-size:13px}
+}
+
+/* Small phones */
+@media(max-width:400px){
+  .hero h1{font-size:32px}
+  .hero-badge{font-size:10px;padding:5px 12px}
+  .feat-grid{gap:10px}
+  .feat{padding:16px}
+  section{padding:44px 12px}
+}
+
+/* Landscape phones */
+@media(max-width:768px) and (orientation:landscape){
+  .hero{min-height:auto;padding:72px 16px 32px}
+}
+
+/* Tablet landscape */
+@media(min-width:769px) and (max-width:1024px){
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -87,6 +163,9 @@ footer a:hover{color:var(--g)}
 
 <nav>
   <a href="#" class="nav-logo">XHID</a>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-links">
     <a href="#features"><span data-ru>Возможности</span><span data-en>Features</span></a>
     <a href="#makcu"><span data-ru>MAKCU</span><span data-en>MAKCU</span></a>
@@ -96,6 +175,15 @@ footer a:hover{color:var(--g)}
     <button class="lang-btn" onclick="toggleLang()">EN</button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="closeMobile()"><span data-ru>Возможности</span><span data-en>Features</span></a>
+  <a href="#makcu" onclick="closeMobile()"><span data-ru>MAKCU</span><span data-en>MAKCU</span></a>
+  <a href="#how" onclick="closeMobile()"><span data-ru>Управление</span><span data-en>Control</span></a>
+  <a href="#premium" onclick="closeMobile()"><span data-ru>Premium</span><span data-en>Premium</span></a>
+  <a href="mailto:x.hid@ya.ru" style="color:var(--g)">x.hid@ya.ru</a>
+  <button class="lang-btn" onclick="toggleLang();closeMobile()">EN</button>
+</div>
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
@@ -216,7 +304,7 @@ footer a:hover{color:var(--g)}
   <div class="sec-label">// MAKCU</div>
   <h2 class="sec-title"><span data-ru>Совместимость с MAKCU</span><span data-en>MAKCU Compatible</span></h2>
   <p class="sec-desc"><span data-ru>XHID — полный аналог MAKCU-устройства. Все команды km.* совместимы. Команды обрабатываются параллельно с физической мышью — ничего не конфликтует.</span><span data-en>XHID is a full MAKCU device equivalent. All km.* commands compatible. Commands are processed in parallel with the physical mouse — no conflicts.</span></p>
-  <div class="highlight-box">
+  <div class="table-wrap">
     <table class="cmd-table">
       <tr><th>Команда</th><th><span data-ru>Описание</span><span data-en>Description</span></th></tr>
       <tr><td>km.move(dx,dy)</td><td><span data-ru>Прямое относительное перемещение курсора</span><span data-en>Direct relative cursor movement</span></td></tr>
@@ -233,7 +321,7 @@ footer a:hover{color:var(--g)}
       <tr><td>km.buttons(1)</td><td><span data-ru>Включить отправку маски кнопок при изменении</span><span data-en>Enable button mask reporting on change</span></td></tr>
       <tr><td>km.report(1/0)</td><td><span data-ru>Дамп сырых отчётов мыши для отладки</span><span data-en>Raw mouse report dump for debugging</span></td></tr>
       <tr><td>km.version()</td><td><span data-ru>Версия прошивки</span><span data-en>Firmware version</span></td></tr>
-      <tr><td colspan="2" style="border-top:1px solid rgba(0,255,77,.2);padding-top:12px;color:rgba(255,255,77,.5);word-break:break-all"><span data-ru>+ команды настройки: km.sens(), km.ads(), km.fov(), km.humanize(), km.pose(), km.weapon(), km.module(), km.save(), km.restart()</span><span data-en>+ config commands: km.sens(), km.ads(), km.fov(), km.humanize(), km.pose(), km.weapon(), km.module(), km.save(), km.restart()</span></td></tr>
+      <tr><td colspan="2" style="border-top:1px solid rgba(0,255,77,.2);padding-top:12px;color:rgba(0,255,77,.5);word-break:break-all"><span data-ru>+ команды настройки: km.sens(), km.ads(), km.fov(), km.humanize(), km.pose(), km.weapon(), km.module(), km.save(), km.restart()</span><span data-en>+ config commands: km.sens(), km.ads(), km.fov(), km.humanize(), km.pose(), km.weapon(), km.module(), km.save(), km.restart()</span></td></tr>
     </table>
   </div>
 </section>
@@ -247,10 +335,10 @@ footer a:hover{color:var(--g)}
   <div class="highlight-box">
     <h3><span data-ru>SD-карта</span><span data-en>SD Card</span></h3>
     <ul>
-      <li><span data-ru>Средний .xhm макрос: 0.5–2 KB ( MoveR + Delay + Button)</span><span data-en>Average .xhm macro: 0.5–2 KB (MoveR + Delay + Button)</span></li>
-      <li><span data-ru>Сложный .lua скрипт (GHUB): 2–10 KB</span><span data-en>Complex .lua script (GHUB): 2–10 KB</span></li>
-      <li><span data-ru>Таблица отдачи одного оружия: 3–5 KB</span><span data-en>Recoil table for one weapon: 3–5 KB</span></li>
-      <li><span data-ru>Любая SD-карта — от 1 000 до 4 000 .xhm макросов, или 200–500 Lua-скриптов, или до 400 таблиц оружия RUST</span><span data-en>Any SD card — 1,000 to 4,000 .xhm macros, or 200–500 Lua scripts, or up to 400 RUST weapon recoil tables</span></li>
+      <li><span data-ru>Средний .xhm макрос: 0.5-2 KB ( MoveR + Delay + Button)</span><span data-en>Average .xhm macro: 0.5-2 KB (MoveR + Delay + Button)</span></li>
+      <li><span data-ru>Сложный .lua скрипт (GHUB): 2-10 KB</span><span data-en>Complex .lua script (GHUB): 2-10 KB</span></li>
+      <li><span data-ru>Таблица отдачи одного оружия: 3-5 KB</span><span data-en>Recoil table for one weapon: 3-5 KB</span></li>
+      <li><span data-ru>Любая SD-карта — от 1 000 до 4 000 .xhm макросов, или 200-500 Lua-скриптов, или до 400 таблиц оружия RUST</span><span data-en>Any SD card — 1,000 to 4,000 .xhm macros, or 200-500 Lua scripts, or up to 400 RUST weapon recoil tables</span></li>
       <li><span data-ru>Файлы распознаются автоматически (.xhm / .amc / .lua), список доступных макросов — через дашборд</span><span data-en>Files auto-detected (.xhm / .amc / .lua), available macro list — via dashboard</span></li>
     </ul>
   </div>
@@ -328,9 +416,21 @@ footer a:hover{color:var(--g)}
 <script>
 function toggleLang(){
   var b=document.body;
-  if(b.classList.contains('lang-ru')){b.classList.replace('lang-ru','lang-en');document.querySelector('.lang-btn').textContent='RU'}
-  else{b.classList.replace('lang-en','lang-ru');document.querySelector('.lang-btn').textContent='EN'}
+  if(b.classList.contains('lang-ru')){b.classList.replace('lang-ru','lang-en');document.querySelectorAll('.lang-btn').forEach(function(e){e.textContent='RU'})}
+  else{b.classList.replace('lang-en','lang-ru');document.querySelectorAll('.lang-btn').forEach(function(e){e.textContent='EN'})}
 }
+function toggleMobile(){
+  var m=document.getElementById('mobileMenu');
+  var h=document.querySelector('.hamburger');
+  if(m.classList.contains('open')){m.classList.remove('open');h.classList.remove('active');document.body.style.overflow=''}
+  else{m.classList.add('open');h.classList.add('active');document.body.style.overflow='hidden'}
+}
+function closeMobile(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobile()});
 </script>
 </body>
 </html>
